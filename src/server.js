@@ -3,7 +3,7 @@ import { config } from "dotenv";
 import { connectDB, disconnectDB } from "./config/db.js";
 
 //Import Routes
-import toDoListRoutes from "./routes/toDoListRoutes.js"
+import goalsListRoutes from "./routes/goalsListRoutes.js"
 
 config();
 connectDB();
@@ -11,14 +11,16 @@ connectDB();
 const app = express();
 
 //API Routes
-app.use("/list", toDoListRoutes);
+app.use("/goals", goalsListRoutes);
 
 const PORT = 5001;
 app.listen(PORT, () =>{
     console.log(`Server running on port: ${PORT}`)
 });
 
-//Handle unhandled promise rejections (e.g, database connection errors)
+//"Have it then Leave it"
+// It is imperative that we handle disconnection in cases of app breaking to avoid memory leaks
+// Handle unhandled promise rejections (e.g, database connection errors)
 process.on("unhandledRejection", (err) => {
     console.error("Unhandled Rejection", err);
     ServiceWorkerRegistration.close(async () => {
