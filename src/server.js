@@ -4,14 +4,21 @@ import { connectDB, disconnectDB } from "./config/db.js";
 
 //Import Routes
 import goalsListRoutes from "./routes/goalsListRoutes.js"
+import authRoutes from "./routes/authRoutes.js";
 
 config();
 connectDB();
+
+//parsing BODY middlewares to handle json, .etc
+app.use(express.json());
+app.use(express.urlencoded({ extended: true })); //Not fully required, it just allows automatic parse in htmlForm submission to be accessible to req.body
+
 
 const app = express();
 
 //API Routes
 app.use("/goals", goalsListRoutes);
+app.use("/auth", authRoutes);
 
 const PORT = 5001;
 app.listen(PORT, () =>{

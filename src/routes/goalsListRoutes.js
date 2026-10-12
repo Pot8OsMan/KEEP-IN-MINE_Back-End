@@ -3,7 +3,7 @@ import express from "express";
 const router = express.Router();
 
 router.get("/test", (req, res) => {
-    res.json({message: "Test successful"});
+    res.json({ message: "Test successful" });
 });
 
 router.get("/", (req, res) => {
