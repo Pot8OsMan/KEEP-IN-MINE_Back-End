@@ -13,10 +13,10 @@ const goals = [
         status: "PLANNED",
         tasks: {
             create: [
-                { title: "Read", userId: creatorId },
-                { title: "Write", userId: creatorId },
-                { title: "Speak", userId: creatorId },
-                { title: "Define", userId: creatorId }
+                { title: "Read", userId: creatorId, completedAt: '2027-02-01T00:00:00Z' },
+                { title: "Write", userId: creatorId, completedAt: '2027-02-01T00:00:00Z' },
+                { title: "Speak", userId: creatorId, completedAt: '2027-02-01T00:00:00Z' },
+                { title: "Define", userId: creatorId, completedAt: '2027-02-01T00:00:00Z' }
             ]
         }
     },
@@ -28,11 +28,11 @@ const goals = [
         status: "PLANNED",
         tasks: {
             create: [
-                { title: "List ideas", userId: creatorId },
-                { title: "build project", userId: creatorId },
-                { title: "Coding 101", userId: creatorId },
-                { title: "Advanced mechanics", userId: creatorId },
-                { title: "play-test", userId: creatorId }
+                { title: "List ideas", userId: creatorId, completedAt: '2026-10-28T00:00:00Z' },
+                { title: "build project", userId: creatorId, completedAt: '2026-11-01T00:00:00Z' },
+                { title: "Coding 101", userId: creatorId, completedAt: '2026-11-10T00:00:00Z' },
+                { title: "Advanced mechanics", userId: creatorId, completedAt: '2026-11-15T00:00:00Z' },
+                { title: "play-test", userId: creatorId, completedAt: '2026-11-22T00:00:00Z' }
             ]
         }
     }
