@@ -30,3 +30,5 @@ const addTaskToGoal = async (req,res) => {
         }
     });
 };
+
+export { addTaskToGoal };

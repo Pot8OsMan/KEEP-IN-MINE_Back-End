@@ -21,3 +21,5 @@ const getGoalById = async (req,res) => {
         },
     });
 };
+
+export { getGoalById };

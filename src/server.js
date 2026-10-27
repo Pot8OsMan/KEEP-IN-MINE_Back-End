@@ -3,8 +3,9 @@ import { config } from "dotenv";
 import { connectDB, disconnectDB } from "./config/db.js";
 
 //Import Routes
-import goalsListRoutes from "./routes/goalsListRoutes.js"
 import authRoutes from "./routes/authRoutes.js";
+import goalsListRoutes from "./routes/goalsListRoutes.js"
+import taskRoutes from "./routes/taskRoutes.js"
 
 config();
 connectDB();
@@ -17,8 +18,9 @@ app.use(express.urlencoded({ extended: true })); //Not fully required, it just a
 
 
 //API Routes
-app.use("/goals", goalsListRoutes);
 app.use("/auth", authRoutes);
+app.use("/goals", goalsListRoutes);
+app.use("/tasks", taskRoutes);
 
 const PORT = 5001;
 app.listen(PORT, () =>{

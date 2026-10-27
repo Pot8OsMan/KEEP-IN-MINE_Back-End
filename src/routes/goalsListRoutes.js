@@ -1,8 +1,11 @@
 import express from "express";
+import { getGoalById } from "../controllers/goalController.js";
 
 const router = express.Router();
 
-router.get("/test", (req, res) => {
+router.get("/testGet", getGoalById);
+
+router.get("/testGet", (req, res) => {
     res.json({ message: "Test successful" });
 });
 
