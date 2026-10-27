@@ -89,6 +89,6 @@ const logout = async (req, res) => {
         status: "succes",
         message: "Logged out successfully!",
     });
-}
+};
 
 export {register, login, logout}

@@ -2,21 +2,21 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient()
 
-const creatorId = "e3a5f9e3-a7f0-4f22-b21c-f687136fd2aa"
+const creatorId = "01025746-001c-40b9-bcd8-849de8329841"
 
 const goals = [
     {
         userId: creatorId,
         title: "Learn Mandarin",
         description: "Study until I can master HSK3, vocabulary, writting and reading.",
-        targetDate: "2027-02-01T00:00:00Z",
+        targetDate: new Date("2027-02-01T00:00:00Z"),
         status: "PLANNED",
         tasks: {
             create: [
-                { title: "Read", userId: creatorId, completedAt: '2027-02-01T00:00:00Z' },
-                { title: "Write", userId: creatorId, completedAt: '2027-02-01T00:00:00Z' },
-                { title: "Speak", userId: creatorId, completedAt: '2027-02-01T00:00:00Z' },
-                { title: "Define", userId: creatorId, completedAt: '2027-02-01T00:00:00Z' }
+                { title: "Read", userId: creatorId, dueAt: new Date("2027-02-01T00:00:00Z") },
+                { title: "Write", userId: creatorId, dueAt: new Date("2027-02-01T00:00:00Z") },
+                { title: "Speak", userId: creatorId, dueAt: new Date("2027-02-01T00:00:00Z") },
+                { title: "Define", userId: creatorId, dueAt: new Date("2027-02-01T00:00:00Z") }
             ]
         }
     },
@@ -24,15 +24,15 @@ const goals = [
         userId: creatorId,
         title: "Finish Game Development",
         description: "Realize your own ideas and create instead of sitting on it until you forget like you always do.",
-        targetDate: "2026-11-25T00:00:00Z",
+        targetDate: new Date("2026-11-25T00:00:00Z"),
         status: "PLANNED",
         tasks: {
             create: [
-                { title: "List ideas", userId: creatorId, completedAt: '2026-10-28T00:00:00Z' },
-                { title: "build project", userId: creatorId, completedAt: '2026-11-01T00:00:00Z' },
-                { title: "Coding 101", userId: creatorId, completedAt: '2026-11-10T00:00:00Z' },
-                { title: "Advanced mechanics", userId: creatorId, completedAt: '2026-11-15T00:00:00Z' },
-                { title: "play-test", userId: creatorId, completedAt: '2026-11-22T00:00:00Z' }
+                { title: "List ideas", userId: creatorId, dueAt: new Date("2026-10-28T00:00:00Z") },
+                { title: "build project", userId: creatorId, dueAt: new Date("2026-11-01T00:00:00Z") },
+                { title: "Coding 101", userId: creatorId, dueAt: new Date("2026-11-10T00:00:00Z") },
+                { title: "Advanced mechanics", userId: creatorId, dueAt: new Date("2026-11-15T00:00:00Z") },
+                { title: "play-test", userId: creatorId, dueAt: new Date("2026-11-22T00:00:00Z") }
             ]
         }
     }
