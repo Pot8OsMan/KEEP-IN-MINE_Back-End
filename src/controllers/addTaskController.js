@@ -1,11 +1,11 @@
-import { prisma } from '../config/db'
+import { prisma } from "../config/db.js"
 
 const addTaskToGoal = async (req,res) => {
     const { goalId, userId, title, description, status, priority, dueAt } = req.body;
 
     // Ensure goal exists
     const goal = await prisma.goal.findUnique({
-        where: { id: goalId },
+        where: { id: goalId, userId: userId },
     });
 
     if (!goal) {
@@ -19,7 +19,9 @@ const addTaskToGoal = async (req,res) => {
             title,
             description,
             status: status || "PLANNED",
-            priority: priority || "TRIVIAL"
+            priority: priority || "TRIVIAL",
+
+            dueAt: dueAt || null
         }
     });
 

@@ -3,6 +3,6 @@ import { addTaskToGoal } from "../controllers/addTaskController.js";
 
 const router = express.Router();
 
-router.get("/addTask", addTaskToGoal);
+router.post("/addTask", addTaskToGoal);
 
 export default router;

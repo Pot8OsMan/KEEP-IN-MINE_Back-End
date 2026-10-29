@@ -1,9 +1,11 @@
 import express from "express";
-import { getGoalById } from "../controllers/goalController.js";
+import { getGoalById, getGoalByUserId } from "../controllers/goalController.js";
 
 const router = express.Router();
 
-router.get("/testGet", getGoalById);
+router.get("/userGoals", getGoalByUserId);
+
+router.get("/goal", getGoalById);
 
 router.get("/testGet", (req, res) => {
     res.json({ message: "Test successful" });
