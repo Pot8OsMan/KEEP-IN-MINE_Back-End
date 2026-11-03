@@ -29,7 +29,7 @@ const updateTaskByGoalId = async (req,res) => {
     });
 
     if (!task) {
-        return res.status(404).json({ error: "Goal Not Found!" })
+        return res.status(404).json({ error: "Task Not Found!" })
     }
 
     const taskItem = await prisma.task.update({

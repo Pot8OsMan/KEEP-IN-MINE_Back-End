@@ -27,7 +27,7 @@ app.listen(PORT, () =>{
     console.log(`Server running on port: ${PORT}`)
 });
 
-//"Have it then Leave it"
+// "Have it then Leave it"
 // It is imperative that we handle disconnection in cases of app breaking to avoid memory leaks
 // Handle unhandled promise rejections (e.g, database connection errors)
 process.on("unhandledRejection", (err) => {
