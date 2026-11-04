@@ -1,8 +1,11 @@
 import express from "express";
 import { addTaskToGoal } from "../controllers/addTaskController.js";
 import { getTaskById, updateTaskByGoalId } from "../controllers/taskController.js";
+import { authMiddleWare } from "../middleware/authMiddleWare.js";
 
 const router = express.Router();
+
+router.use(authMiddleWare);
 
 router.get("/getTask", getTaskById);
 

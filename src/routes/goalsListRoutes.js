@@ -1,7 +1,10 @@
 import express from "express";
 import { getGoalById, getGoalByUserId, updateGoalById } from "../controllers/goalController.js";
+import { authMiddleWare } from "../middleware/authMiddleWare.js";
 
 const router = express.Router();
+
+router.use(authMiddleWare);
 
 router.get("/userGoals", getGoalByUserId);
 

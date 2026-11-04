@@ -42,7 +42,7 @@ const getGoalById = async (req,res) => {
 };
 
 const updateGoalById = async (req,res) => {
-    const { goalId, userId, title, description, targetDate, status, createdAt, updatedAt } = req.body;
+    const { goalId, userId, title, description, targetDate, status } = req.body;
 
     // Ensure goal exists
     const goal = await prisma.goal.findUnique({
@@ -53,7 +53,7 @@ const updateGoalById = async (req,res) => {
         return res.status(404).json({ error: "Goal Not Found!" })
     }
 
-    const goalItem = await prisma.task.update({
+    const goalItem = await prisma.goal.update({
         where: {
             id: goalId,
         },
@@ -62,8 +62,6 @@ const updateGoalById = async (req,res) => {
             description: description,
             targetDate: targetDate,
             status: status,
-            createdAt: createdAt,
-            updatedAt: updatedAt,
         }
     });
 
