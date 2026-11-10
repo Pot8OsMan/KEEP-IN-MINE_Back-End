@@ -29,6 +29,7 @@ model User {
   //Relations
   goals               Goal[]      @relation("GoalMaker")
   tasks               Task[]
+  accomplishments     Accomplishment[]
 }
 
 model Goal {
@@ -85,4 +86,19 @@ enum TaskPriority {
   MEDIUM
   LOW
   TRIVIAL //Eliminate: Can be delete or drop entirely
+}
+
+model Accomplishment {
+  id          String   @id @default(uuid())
+  title       String
+  description String?
+  occurredAt  DateTime @default(now())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, occurredAt])
 }
