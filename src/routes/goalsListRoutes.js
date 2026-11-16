@@ -1,5 +1,5 @@
 import express from "express";
-import { getGoalById, getGoalByUserId, updateGoalById } from "../controllers/goalController.js";
+import { getGoalById, getGoalByUserId, updateGoalById, removeGoalById } from "../controllers/goalController.js";
 import { authMiddleWare } from "../middleware/authMiddleWare.js";
 
 const router = express.Router();
@@ -10,7 +10,9 @@ router.get("/userGoals", getGoalByUserId);
 
 router.get("/goal", getGoalById);
 
-router.put("/updateGoal", updateGoalById);
+router.put("/updateGoal/:id", updateGoalById);
+
+router.delete("/removeGoal/:id", removeGoalById);
 
 router.get("/testGet", (req, res) => {
     res.json({ message: "Test successful" });
