@@ -4,8 +4,9 @@ import { connectDB, disconnectDB } from "./config/db.js";
 
 //Import Routes
 import authRoutes from "./routes/authRoutes.js";
-import goalsListRoutes from "./routes/goalsListRoutes.js"
-import taskRoutes from "./routes/taskRoutes.js"
+import goalsListRoutes from "./routes/goalsListRoutes.js";
+import taskRoutes from "./routes/taskRoutes.js";
+import accomplishmentRoutes from "./routes/accomplishmentRoutes.js"
 
 config();
 connectDB();
@@ -21,6 +22,7 @@ app.use(express.urlencoded({ extended: true })); //Not fully required, it just a
 app.use("/auth", authRoutes);
 app.use("/goals", goalsListRoutes);
 app.use("/tasks", taskRoutes);
+app.use("/accomplishments", accomplishmentRoutes);
 
 const PORT = 5001;
 app.listen(PORT, () =>{
