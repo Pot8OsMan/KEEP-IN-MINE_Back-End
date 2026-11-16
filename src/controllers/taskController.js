@@ -21,11 +21,9 @@ const getAllTaskByUserId = async (req,res) => {
 };
 
 const getTaskById = async (req,res) => {
-    const { taskId } = req.body;
-
     // Ensure goal exists
     const task = await prisma.task.findUnique({
-        where: { id: taskId },
+        where: { id: req.params.id },
     });
 
     if (!task) {

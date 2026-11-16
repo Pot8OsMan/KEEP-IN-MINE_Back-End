@@ -6,9 +6,9 @@ const router = express.Router();
 
 router.use(authMiddleWare);
 
-router.get("/userGoals", getGoalByUserId);
+router.get("/getAllGoal", getGoalByUserId);
 
-router.get("/goal", getGoalById);
+router.get("/getGoal/:id", getGoalById);
 
 router.put("/updateGoal/:id", updateGoalById);
 

@@ -9,7 +9,7 @@ router.use(authMiddleWare);
 
 router.get("/getAllTask", getAllTaskByUserId);
 
-router.get("/getTask", getTaskById);
+router.get("/getTask/:id", getTaskById);
 
 router.post("/addTask", addTaskToGoal);
 

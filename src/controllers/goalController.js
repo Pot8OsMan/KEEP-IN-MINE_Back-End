@@ -20,10 +20,10 @@ const getGoalByUserId = async (req,res) => {
 };
 
 const getGoalById = async (req,res) => {
-    const { goalId, userId } = req.body;
+    const { userId } = req.body;
 
     const goal = await prisma.goal.findUnique({
-        where: { id: goalId, userId: userId },
+        where: { id: req.params.id, userId: userId },
         include: {
             tasks: true,
         },
