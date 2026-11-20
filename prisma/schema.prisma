@@ -46,6 +46,7 @@ model Goal {
 
   //Relations
   user                User        @relation("GoalMaker", fields: [userId], references: [id], onDelete: Cascade)
+  accomplishments Accomplishment[]
 }
 
 enum GoalStatus {
@@ -92,6 +93,9 @@ model Accomplishment {
   id          String   @id @default(uuid())
   title       String
   description String?
+  detail      String
+  icon        String
+  tag         String
   occurredAt  DateTime @default(now())
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
@@ -100,5 +104,9 @@ model Accomplishment {
   userId      String
   user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
+  goalId      String?
+  goal         Goal?    @relation(fields: [goalId], references: [id], onDelete: SetNull)
+
   @@index([userId, occurredAt])
+  @@index([goalId])
 }

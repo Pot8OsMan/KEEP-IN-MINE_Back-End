@@ -38,4 +38,26 @@ const getAccomplishmemntsById = async (req,res) => {
     });
 };
 
-export { getAllByUserId, getAccomplishmemntsById };
+const addAccomplishment = async (req,res) => {
+    const { userId, title, description, detail, icon, tag } = req.body;
+
+    const accomplishmentItem = await prisma.accomplishment.create({
+        data: {
+            userId,
+            title,
+            description,
+            detail,
+            icon,
+            tag,
+        }
+    });
+
+    res.status(201).json({
+        status: "success",
+        data: {
+            accomplishmentItem,
+        }
+    });
+};
+
+export { getAllByUserId, getAccomplishmemntsById, addAccomplishment };
